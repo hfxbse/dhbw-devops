@@ -22,9 +22,11 @@ type Product struct {
 
 // Static data for three products
 var products = []Product{
-	{ID: 1, Name: "Product 1", Price: 19.99},
-	{ID: 2, Name: "Product 2", Price: 29.99},
-	{ID: 3, Name: "Product 3", Price: 39.99},
+	{ID: 4, Name: "Hammer", Price: 9.99},
+	{ID: 5, Name: "Wrench", Price: 14.99},
+	{ID: 6, Name: "Screwdriver", Price: 7.99},
+	{ID: 7, Name: "Drill", Price: 49.99},
+	{ID: 8, Name: "Pliers", Price: 12.99},
 }
 
 func main() {
