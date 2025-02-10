@@ -1,4 +1,4 @@
-module github.com/<user/org>/<repo>
+module github.com/hfxbse/dhbw-devops
 go 1.23.6
 
 require (
