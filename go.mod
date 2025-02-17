@@ -1,5 +1,5 @@
 module github.com/hfxbse/dhbw-devops
-go 1.23.6
+go 1.19
 
 require (
 	github.com/golang-jwt/jwt v3.2.2+incompatible
