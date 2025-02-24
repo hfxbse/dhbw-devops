@@ -1,0 +1,31 @@
+name: "build-and-release-container-image"
+run-name: "Build and release server container image"
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - README.md
+      - .gitignore
+      - infrastructure/playbook.yml
+      - infrastructure/Vagrantfile
+
+jobs:
+  build-and-release-container-image:
+    runs-on: ubuntu-24.04
+
+    permissions:
+      packages: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+        name: "Checkout repository"
+
+      - uses: VaultVulp/gp-docker-action@1.6.0
+        name: "Build and upload Docker image"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          image-name: server
+          build-context: .
+          dockerfile: infrastructure/Dockerfile
