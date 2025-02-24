@@ -13,3 +13,10 @@ The products offered by this web-shop are as follows:
 | 6                  | Screwdriver | 7.99  |
 | 7                  | Drill       | 49.99 |
 | 8                  | Pliers      | 12.99 |
+
+## Using GitHub Container Registry
+
+To pull the docker image use the following command
+```bash
+docker pull ghcr.io/hfxbse/dhbw-devops/server:latest
+```
