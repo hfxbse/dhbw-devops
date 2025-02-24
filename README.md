@@ -14,31 +14,34 @@ The products offered by this web-shop are as follows:
 | 7                  | Drill       | 49.99 |
 | 8                  | Pliers      | 12.99 |
 
-## Running the service
+## Running the service locally
 
-Go to the `infrastructure`-folder with
-```bash
-cd infrastructure
-```
+### Using the Docker CLI
 
-### Using Vagrant
-```bash
-vagrant up
-```
-
-### Run locally with Docker
-
-Pull the Docker Image
-```bash
+Either pull the Docker image
+```sh
 docker pull ghcr.io/hfxbse/dhbw-devops/server:latest
 ```
 
-Run the Docker Image
-```bash
+Or build the Docker image
+```sh
+docker build -f infrastructure/Dockerfile . -t ghcr.io/hfxbse/dhbw-devops/server:latest
+```
+
+Then run the Docker image
+```sh
 docker run -p 8080:8080 ghcr.io/hfxbse/dhbw-devops/server:latest
 ```
 
-### Run locally with Docker Compose
-```bash
-docker compose up
+### Using Docker Compose
+
+The setup above can be simplified with Docker Compose
+```sh
+docker compose -f infrastructure/docker-compose.yml up
+```
+
+### Using Vagrant
+
+```sh
+vagrant up
 ```
