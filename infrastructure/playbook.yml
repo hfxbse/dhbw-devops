@@ -1,0 +1,21 @@
+---
+- name: Provision Go application
+  hosts: default
+  become: true
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+      become: true
+
+    - name: Install required packages
+      apt:
+        name:
+          - golang=2:1.19~1
+      become: true
+
+    - name: Build and run the web shop backend
+      shell: nohup go run cmd/main.go > /dev/null 2>&1 &
+      async: 0
+      poll: 0

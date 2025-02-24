@@ -1,0 +1,21 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  config.vm.box = "debian/bookworm64"
+
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
+
+  config.vm.provision "file", source: "../cmd", destination: "~/cmd"
+  config.vm.provision "file", source: "../pkg", destination: "~/pkg"
+  config.vm.provision "file", source: "../internal", destination: "~/internal"
+  config.vm.provision "file", source: "../go.sum", destination: "~/go.sum"
+  config.vm.provision "file", source: "../go.mod", destination: "~/go.mod"
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbook.yml"
+  end
+end
