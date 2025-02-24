@@ -14,9 +14,31 @@ The products offered by this web-shop are as follows:
 | 7                  | Drill       | 49.99 |
 | 8                  | Pliers      | 12.99 |
 
-## Using GitHub Container Registry
+## Running the service
 
-To pull the docker image use the following command
+Go to the `infrastructure`-folder with
+```bash
+cd infrastructure
+```
+
+### Using Vagrant
+```bash
+vagrant up
+```
+
+### Run locally with Docker
+
+Pull the Docker Image
 ```bash
 docker pull ghcr.io/hfxbse/dhbw-devops/server:latest
+```
+
+Run the Docker Image
+```bash
+docker run -p 8080:8080 ghcr.io/hfxbse/dhbw-devops/server:latest
+```
+
+### Run locally with Docker Compose
+```bash
+docker compose up
 ```
