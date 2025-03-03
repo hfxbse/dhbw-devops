@@ -45,3 +45,23 @@ docker compose -f infrastructure/docker-compose.yml up
 ```sh
 vagrant up
 ```
+
+## Setting up with Kubernetes
+
+For this project [minikube](https://minikube.sigs.k8s.io/docs/start) is used.
+
+First create a namespace with "devops-shop"
+```sh
+kubectl apply -f infrastructure/kubernetes/namespace.yml
+```
+
+Then setup the deployment with the following command
+```sh
+kubectl apply -f infrastructure/kubernetes/deployment.yml
+```
+and setup the service with
+```sh
+kubectl apply -f infrastructure/kubernetes/service.yml 
+```
+
+You can then view the minikube dashboard.
