@@ -1,0 +1,29 @@
+services:
+  reverse-proxy:
+    build:
+      context: ../nginx
+      dockerfile: Dockerfile
+    environment:
+      - AUTH_SERVICE=auth
+      - CHECKOUT_SERVICE=checkout
+      - PRODUCTS_SERVICE=products
+      - INCLUDE_PORT=on
+    ports:
+      - "8080:8080"
+
+  auth:
+    build:
+      context: ../..
+      dockerfile: infrastructure/docker/auth.Dockerfile
+
+  checkout:
+    build:
+      context: ../..
+      dockerfile: infrastructure/docker/checkout.Dockerfile
+    environment:
+      - AUTH_SERVICE_URL=http://auth:8080
+
+  products:
+    build:
+      context: ../..
+      dockerfile: infrastructure/docker/products.Dockerfile
