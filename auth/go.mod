@@ -1,4 +1,4 @@
-module github.com/hfxbse/dhbw-devops
+module github.com/hfxbse/dhbw-devops/auth
 go 1.19
 
 require (
