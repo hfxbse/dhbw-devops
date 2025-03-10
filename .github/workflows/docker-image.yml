@@ -11,7 +11,76 @@ on:
       - infrastructure/Vagrantfile
 
 jobs:
-  build-and-release-container-image:
+  build-and-release-auth-container-image:
+    runs-on: ubuntu-24.04
+
+    permissions:
+      packages: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+        name: "Checkout repository"
+
+      - run: make build-auth
+        name: "Build auth service"
+
+      - uses: VaultVulp/gp-docker-action@1.6.0
+        name: "Build and upload auth Docker image"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          image-name: auth
+          build-context: .
+          dockerfile: infrastructure/docker/auth.Dockerfile
+          custom-args: --platform=linux/arm64,linux/amd64
+
+  build-and-release-checkout-container-image:
+    runs-on: ubuntu-24.04
+
+    permissions:
+      packages: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+        name: "Checkout repository"
+
+      - run: make build-checkout
+        name: "Build checkout service"
+
+      - uses: VaultVulp/gp-docker-action@1.6.0
+        name: "Build and upload checkout Docker image"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          image-name: checkout
+          build-context: .
+          dockerfile: infrastructure/docker/checkout.Dockerfile
+          custom-args: --platform=linux/arm64,linux/amd64
+
+  build-and-release-products-container-image:
+    runs-on: ubuntu-24.04
+
+    permissions:
+      packages: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+        name: "Checkout repository"
+
+      - run: make build-products
+        name: "Build products service"
+
+      - uses: VaultVulp/gp-docker-action@1.6.0
+        name: "Build and upload products Docker image"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          image-name: products
+          build-context: .
+          dockerfile: infrastructure/docker/products.Dockerfile
+          custom-args: --platform=linux/arm64,linux/amd64
+
+  build-and-release-ngnix-container-image:
     runs-on: ubuntu-24.04
 
     permissions:
@@ -23,10 +92,10 @@ jobs:
         name: "Checkout repository"
 
       - uses: VaultVulp/gp-docker-action@1.6.0
-        name: "Build and upload Docker image"
+        name: "Build and upload ngnix Docker image"
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          image-name: server
-          build-context: .
-          dockerfile: infrastructure/Dockerfile
+          image-name: ngnix
+          build-context: infrastructure/nginx
+          dockerfile: Dockerfile
           custom-args: --platform=linux/arm64,linux/amd64
