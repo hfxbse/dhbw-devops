@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/hfxbse/dhbw-devops/compare/v1.0.0...v1.1.0) (2025-03-18)
+
+
+### Features
+
+* create argocd application ([#12](https://github.com/hfxbse/dhbw-devops/issues/12)) ([cc08c3b](https://github.com/hfxbse/dhbw-devops/commit/cc08c3b10ff8c052a221103eab42adb7e5e36bad))
+* use microservices within Kubernetes ([#14](https://github.com/hfxbse/dhbw-devops/issues/14)) ([828b3e1](https://github.com/hfxbse/dhbw-devops/commit/828b3e1988513ca8975553163235f836f6747ee4))
+
 ## 1.0.0 (2025-03-10)
 
 
