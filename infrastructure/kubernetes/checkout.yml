@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: checkout-deployment
+  namespace: devops-shop
+  labels:
+    app: checkout
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: checkout
+  template:
+    metadata:
+      labels:
+        app: checkout
+    spec:
+      containers:
+      - name: checkout
+        image: ghcr.io/hfxbse/dhbw-devops/checkout:latest
+        env:
+        - name: AUTH_SERVICE_URL
+          value: "http://auth-service.devops-shop.svc.cluster.local:8080"
+        ports:
+        - containerPort: 8082

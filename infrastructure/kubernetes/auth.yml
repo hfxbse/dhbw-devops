@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-deployment
+  namespace: devops-shop
+  labels:
+    app: auth-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: auth-deployment
+  template:
+    metadata:
+      labels:
+        app: auth-deployment
+    spec:
+      containers:
+      - name: auth
+        image: ghcr.io/hfxbse/dhbw-devops/auth:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-service
+  namespace: devops-shop
+spec:
+  selector:
+    app: auth-deployment
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

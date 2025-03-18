@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: shop-deployment
+  name: products-deployment
   namespace: devops-shop
   labels:
-    app: shop-backend
+    app: products
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: shop-backend
+      app: products
   template:
     metadata:
       labels:
-        app: shop-backend
+        app: products
     spec:
       containers:
-      - name: shop-backend
-        image: ghcr.io/hfxbse/dhbw-devops/server:latest
+      - name: products
+        image: ghcr.io/hfxbse/dhbw-devops/products:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 8081
