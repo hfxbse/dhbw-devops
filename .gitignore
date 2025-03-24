@@ -114,3 +114,7 @@ Temporary Items
 
 # Vagrant
 .vagrant/
+
+# Terraform
+.terraform
+*.tfstate
