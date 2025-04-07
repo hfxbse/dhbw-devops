@@ -31,13 +31,13 @@ dashboards:
              "defaults": {
                "custom": {},
                "thresholds": {
-           "mode": "absolute",
-           "steps": [
-             {
-               "color": "green",
-               "value": null
-             }
-           ]
+                 "mode": "absolute",
+                 "steps": [
+                   {
+                     "color": "green",
+                     "value": 50
+                   }
+                 ]
                },
                "mappings": [],
                "unit": "percent"
@@ -51,12 +51,7 @@ dashboards:
            "y": 0
            },
            "datasource": null,
-           "valueMappings": [
-             {
-               "text": "50%",
-               "value": "50"
-             }
-           ]
+           "value": 50
           }
           ],
           "time": {
