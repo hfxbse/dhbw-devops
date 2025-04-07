@@ -5,65 +5,29 @@ dashboards:
     cpu_dashboard:
       json: |
         {
-          "id": 0,
-          "title": "CPU Metrics",
-          "panels": [
-          {
-           "type": "stat",
-           "title": "Hardcoded CPU Value",
-           "targets": [],
-           "options": {
-             "reduceOptions": {
-               "values": false,
-               "calcs": ["lastNotNull"],
-               "fields": ""
-             },
-             "textMode": "value",
-             "colorMode": "value",
-             "graphMode": "none",
-             "justifyMode": "center",
-             "text": {
-               "titleSize": 20,
-               "valueSize": 40
-             }
-           },
-           "fieldConfig": {
-             "defaults": {
-               "custom": {},
-               "thresholds": {
-           "mode": "absolute",
-           "steps": [
-             {
-               "color": "green",
-               "value": null
-             }
-           ]
-               },
-               "mappings": [],
-               "unit": "percent"
-             },
-             "overrides": []
-           },
-           "gridPos": {
-           "h": 8,
-           "w": 24,
-           "x": 0,
-           "y": 0
-           },
-           "datasource": null,
-           "valueMappings": [
-             {
-               "text": "50%",
-               "value": "50"
-             }
-           ]
-          }
-          ],
+          "id": null,
+          "uid": "cLV5GDCkz",
+          "title": "New dashboard",
+          "tags": [],
+          "timezone": "browser",
+          "editable": true,
+          "graphTooltip": 1,
+          "panels": [],
           "time": {
-          "from": "now-1h",
-          "to": "now"
+            "from": "now-6h",
+            "to": "now"
           },
-          "schemaVersion": 16,
-          "version": 1,
-          "refresh": "5s"
+          "timepicker": {
+            "refresh_intervals": []
+          },
+          "templating": {
+            "list": []
+          },
+          "annotations": {
+            "list": []
+          },
+          "refresh": "5s",
+          "schemaVersion": 17,
+          "version": 0,
+          "links": []
         }
