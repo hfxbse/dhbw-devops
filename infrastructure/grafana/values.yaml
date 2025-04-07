@@ -14,12 +14,3 @@ providers:
     options:
       path: dashboard.json
 
-# Additional Grafana settings (optional)
-grafana:
-  enabled: true
-  image: grafana/grafana:latest
-  persistence:
-    enabled: true
-    storageClass: "standard"
-    accessMode: ReadWriteOnce
-    size: 10Gi
