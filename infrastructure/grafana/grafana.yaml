@@ -14,7 +14,7 @@ spec:
         valueFiles:
           - $devops/infrastructure/grafana/values.yml
     - repoURL: 'https://github.com/hfxbse/dhbw-devops.git'
-      targetRevision: main
+      targetRevision: grafana
       ref: devops
   destination:
     server: "https://kubernetes.default.svc"
