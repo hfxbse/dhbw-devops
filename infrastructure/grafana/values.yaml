@@ -5,7 +5,7 @@ dashboards:
     cpu_dashboard:
       json: |
         {
-          "id": null,
+          "id": 0,
           "title": "CPU Metrics",
           "panels": [
           {
