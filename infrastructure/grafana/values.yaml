@@ -1,64 +1,10 @@
-adminUser: "admin"
-adminPassword: "admin"
-dashboards:
-  default:
-    cpu_dashboard:
-      json: |
-        {
-          "id": null,
-          "title": "CPU Metrics",
-          "panels": [
-          {
-           "type": "stat",
-           "title": "Hardcoded CPU Value",
-           "targets": [],
-           "options": {
-             "reduceOptions": {
-               "values": false,
-               "calcs": ["lastNotNull"],
-               "fields": ""
-             },
-             "textMode": "value",
-             "colorMode": "value",
-             "graphMode": "none",
-             "justifyMode": "center",
-             "text": {
-               "titleSize": 20,
-               "valueSize": 40
-             }
-           },
-           "fieldConfig": {
-             "defaults": {
-               "custom": {},
-               "thresholds": {
-                 "mode": "absolute",
-                 "steps": [
-                   {
-                     "color": "green",
-                     "value": 50
-                   }
-                 ]
-               },
-               "mappings": [],
-               "unit": "percent"
-             },
-             "overrides": []
-           },
-           "gridPos": {
-           "h": 8,
-           "w": 24,
-           "x": 0,
-           "y": 0
-           },
-           "datasource": null,
-           "value": 50
-          }
-          ],
-          "time": {
-          "from": "now-1h",
-          "to": "now"
-          },
-          "schemaVersion": 16,
-          "version": 1,
-          "refresh": "5s"
-        }
+apiVersion: 1
+providers:
+  - name: 'default'
+    orgId: 1
+    folder: ''
+    type: file
+    disableDeletion: false
+    editable: true
+    options:
+      path: infrastructure/grafana/dashabord.json

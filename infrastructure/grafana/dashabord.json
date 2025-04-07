@@ -1,0 +1,59 @@
+{
+    "id": null,
+    "title": "CPU Metrics",
+    "panels": [
+      {
+        "type": "stat",
+        "title": "CPU Usage",
+        "targets": [],
+        "options": {
+          "reduceOptions": {
+            "values": false,
+            "calcs": ["lastNotNull"],
+            "fields": ""
+          },
+          "textMode": "value",
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "center",
+          "text": {
+            "titleSize": 20,
+            "valueSize": 40
+          }
+        },
+        "fieldConfig": {
+          "defaults": {
+            "custom": {},
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": 50
+                }
+              ]
+            },
+            "mappings": [],
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "datasource": null,
+        "value": 50
+      }
+    ],
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "schemaVersion": 16,
+    "version": 1,
+    "refresh": "5s"
+  }
+  
