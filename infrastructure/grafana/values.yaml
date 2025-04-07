@@ -1,3 +1,8 @@
+# Admin credentials for Grafana
+adminUser: "admin"
+adminPassword: "admin"
+
+# Dashboard provisioning configuration
 apiVersion: 1
 providers:
   - name: 'default'
@@ -7,4 +12,14 @@ providers:
     disableDeletion: false
     editable: true
     options:
-      path: infrastructure/grafana/dashabord.json
+      path: /var/lib/grafana/dashboards
+
+# Additional Grafana settings (optional)
+grafana:
+  enabled: true
+  image: grafana/grafana:latest
+  persistence:
+    enabled: true
+    storageClass: "standard"
+    accessMode: ReadWriteOnce
+    size: 10Gi
