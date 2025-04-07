@@ -12,7 +12,7 @@ providers:
     disableDeletion: false
     editable: true
     options:
-      path: /var/lib/grafana/dashboards
+      path: dashboard.json
 
 # Additional Grafana settings (optional)
 grafana:
