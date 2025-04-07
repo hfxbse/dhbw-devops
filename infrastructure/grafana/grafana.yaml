@@ -12,7 +12,7 @@ spec:
       helm:
         releaseName: grafana
         valueFiles:
-          - $devops/infrastructure/grafana/values.yml
+          - $devops/infrastructure/grafana/values.yaml
     - repoURL: 'https://github.com/hfxbse/dhbw-devops.git'
       targetRevision: grafana
       ref: devops
