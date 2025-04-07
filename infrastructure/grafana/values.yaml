@@ -1,0 +1,76 @@
+adminUser: "admin"
+adminPassword: "admin"
+dashboards:
+  default:
+    system-overview:
+      json: |
+        {
+          "annotations": {
+            "list": [
+              {
+                "builtIn": 1,
+                "type": "dashboard",
+                "name": "Annotations & Alerts",
+                "enable": true
+              }
+            ]
+          },
+          "editable": true,
+          "gnetId": null,
+          "graphTooltip": 0,
+          "id": null,
+          "iteration": 1652294492576,
+          "panels": [
+            {
+              "datasource": "Prometheus",
+              "fieldConfig": {
+                "defaults": {
+                  "unit": "percent"
+                },
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 8,
+                "w": 24,
+                "x": 0,
+                "y": 0
+              },
+              "id": 1,
+              "options": {
+                "reduceOptions": {
+                  "calcs": ["last"],
+                  "fields": "",
+                  "values": false
+                },
+                "orientation": "horizontal",
+                "showThresholdLabels": false,
+                "showThresholdMarkers": true
+              },
+              "pluginVersion": "8.5.0",
+              "targets": [
+                {
+                  "expr": "100 - (avg by(instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)",
+                  "legendFormat": "{{instance}}",
+                  "refId": "A"
+                }
+              ],
+              "title": "CPU Usage",
+              "type": "gauge"
+            }
+          ],
+          "schemaVersion": 30,
+          "style": "dark",
+          "tags": [],
+          "templating": {
+            "list": []
+          },
+          "time": {
+            "from": "now-1h",
+            "to": "now"
+          },
+          "timepicker": {},
+          "timezone": "",
+          "title": "System Overview",
+          "uid": "sys-overview",
+          "version": 1
+        }

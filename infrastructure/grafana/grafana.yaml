@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://grafana.github.io/helm-charts
+      chart: grafana
+      targetRevision: 8.11.3
+      helm:
+        releaseName: grafana
+        valueFiles:
+          - $devops/infrastructure/grafana/values.yml
+    - repoURL: 'https://github.com/hfxbse/dhbw-devops.git'
+      targetRevision: main
+      ref: devops
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
