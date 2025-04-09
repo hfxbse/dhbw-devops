@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.1.0](https://github.com/hfxbse/dhbw-devops/compare/v1.0.0...v1.1.0) (2025-04-09)
+
+
+### Features
+
+* add CPU usage dashboard simulation ([23354f8](https://github.com/hfxbse/dhbw-devops/commit/23354f8612f40e4c315a25adc5d5265512efa5d8))
+* add test data source ([ac3a510](https://github.com/hfxbse/dhbw-devops/commit/ac3a5109df912419baa33d91d04328540388248c))
+* create argocd application ([#12](https://github.com/hfxbse/dhbw-devops/issues/12)) ([cc08c3b](https://github.com/hfxbse/dhbw-devops/commit/cc08c3b10ff8c052a221103eab42adb7e5e36bad))
+* setup LGTM via Helm chart ([43293e1](https://github.com/hfxbse/dhbw-devops/commit/43293e1e4a6924b3cd80b40a6352168a8371c663))
+* use microservices within Kubernetes ([#14](https://github.com/hfxbse/dhbw-devops/issues/14)) ([828b3e1](https://github.com/hfxbse/dhbw-devops/commit/828b3e1988513ca8975553163235f836f6747ee4))
+
 ## 1.0.0 (2025-03-10)
 
 
