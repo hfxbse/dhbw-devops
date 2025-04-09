@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: grafana
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana-lgtm
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: 'https://github.com/hfxbse/dhbw-devops.git'
+      targetRevision: main
+      ref: values
+
+    - repoURL: https://grafana.github.io/helm-charts
+      targetRevision: 2.1.0
+      chart: lgtm-distributed
+      helm:
+        valueFiles:
+          - $values/infrastructure/grafana-lgtm/values.yml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: grafana
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
