@@ -2,6 +2,200 @@ grafana:
   adminUser: "admin"
   adminPassword: "admin"
 
+  dashboardProviders:
+    dashboardproviders.yaml:
+      apiVersion: 1
+      providers:
+        - name: 'default'
+          orgId: 1
+          folder: ''
+          type: file
+          disableDeletion: false
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/default
+
+  dashboards:
+    default:
+      cluster-resources:
+        json: |
+          {
+            "annotations": {
+              "list": [
+                {
+                  "builtIn": 1,
+                  "datasource": {
+                    "type": "grafana",
+                    "uid": "-- Grafana --"
+                  },
+                  "enable": true,
+                  "hide": true,
+                  "iconColor": "rgba(0, 211, 255, 1)",
+                  "name": "Annotations & Alerts",
+                  "type": "dashboard"
+                }
+              ]
+            },
+            "editable": true,
+            "fiscalYearStartMonth": 0,
+            "graphTooltip": 0,
+            "id": 3,
+            "links": [],
+            "panels": [
+              {
+                "datasource": {
+                  "type": "datasource",
+                  "uid": "grafana"
+                },
+                "description": "Simulated Kubernetes cluster CPU usage",
+                "fieldConfig": {
+                  "defaults": {
+                    "color": {
+                      "mode": "palette-classic"
+                    },
+                    "custom": {
+                      "axisBorderShow": false,
+                      "axisCenteredZero": false,
+                      "axisColorMode": "text",
+                      "axisLabel": "",
+                      "axisPlacement": "auto",
+                      "axisSoftMax": 100,
+                      "axisSoftMin": 0,
+                      "barAlignment": 1,
+                      "drawStyle": "bars",
+                      "fillOpacity": 0,
+                      "gradientMode": "none",
+                      "hideFrom": {
+                        "legend": false,
+                        "tooltip": false,
+                        "viz": false
+                      },
+                      "insertNulls": false,
+                      "lineInterpolation": "linear",
+                      "lineWidth": 1,
+                      "pointSize": 5,
+                      "scaleDistribution": {
+                        "type": "linear"
+                      },
+                      "showPoints": "auto",
+                      "spanNulls": false,
+                      "stacking": {
+                        "group": "A",
+                        "mode": "none"
+                      },
+                      "thresholdsStyle": {
+                        "mode": "off"
+                      }
+                    },
+                    "mappings": [],
+                    "max": 100,
+                    "min": 0,
+                    "thresholds": {
+                      "mode": "absolute",
+                      "steps": [
+                        {
+                          "color": "green",
+                          "value": null
+                        },
+                        {
+                          "color": "red",
+                          "value": 80
+                        }
+                      ]
+                    }
+                  },
+                  "overrides": []
+                },
+                "gridPos": {
+                  "h": 8,
+                  "w": 12,
+                  "x": 0,
+                  "y": 0
+                },
+                "id": 1,
+                "options": {
+                  "legend": {
+                    "calcs": [],
+                    "displayMode": "list",
+                    "placement": "bottom",
+                    "showLegend": true
+                  },
+                  "tooltip": {
+                    "mode": "single",
+                    "sort": "none"
+                  }
+                },
+                "targets": [
+                  {
+                    "channel": "plugin/testdata/random-20Hz-stream",
+                    "datasource": {
+                      "type": "datasource",
+                      "uid": "grafana"
+                    },
+                    "filter": {
+                      "fields": [
+                        "Time",
+                        "Value"
+                      ]
+                    },
+                    "options": {
+                      "max": 100,
+                      "min": 0
+                    },
+                    "queryType": "randomWalk",
+                    "refId": "A"
+                  }
+                ],
+                "title": "CPU Usage",
+                "transformations": [
+                  {
+                    "id": "filterByValue",
+                    "options": {
+                      "filters": [
+                        {
+                          "config": {
+                            "id": "greater",
+                            "options": {
+                              "value": 0
+                            }
+                          },
+                          "fieldName": "A-series"
+                        },
+                        {
+                          "config": {
+                            "id": "lowerOrEqual",
+                            "options": {
+                              "value": 100
+                            }
+                          },
+                          "fieldName": "A-series"
+                        }
+                      ],
+                      "match": "any",
+                      "type": "include"
+                    }
+                  }
+                ],
+                "type": "timeseries"
+              }
+            ],
+            "schemaVersion": 39,
+            "tags": [],
+            "templating": {
+              "list": []
+            },
+            "time": {
+              "from": "now-1h",
+              "to": "now"
+            },
+            "timepicker": {},
+            "timezone": "browser",
+            "title": "Cluster resources",
+            "uid": "ceidxdqutlqtca",
+            "version": 5,
+            "weekStart": ""
+          }
+
 tempo:
   compactor:
     replicas: 2
